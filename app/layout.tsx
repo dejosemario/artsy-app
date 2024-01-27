@@ -1,3 +1,4 @@
+import Footer from "../components/molecules/Footer/Footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -16,9 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body>
-        <div />
         {children}
-        <div />
+       <Footer />
       </body>
     </html>
   );
