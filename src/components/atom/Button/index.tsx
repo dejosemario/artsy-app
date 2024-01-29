@@ -1,9 +1,16 @@
 import React from 'react'
 
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  loading?: boolean;
+  variant?: "primary" | "gradient";
+  renderAs?: "button" | "link";
+  href?: string;
+};
 
 
-export default function Button() {
-  return (
-    <div>index</div>
+
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+
+    
   )
-}
