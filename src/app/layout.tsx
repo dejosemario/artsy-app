@@ -1,4 +1,5 @@
-import Footer from "../components/molecules/Footer/Footer";
+import Header from "@/components/molecules/Header";
+import Footer from "../components/molecules/Footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -6,7 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Artsy App",
-  description: "A photo gallery that serves creators & collectors of art and photography generally.",
+  description:
+    "A photo gallery that serves creators & collectors of art and photography generally.",
 };
 
 export default function RootLayout({
@@ -17,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body>
-        {children}
-       <Footer />
+          <Header />
+          {children}
+          <Footer />
       </body>
     </html>
   );
