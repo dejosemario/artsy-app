@@ -1,19 +1,17 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { VscMenu } from "react-icons/vsc";
 import { RiCloseLine } from "react-icons/ri";
-
 import { navLinks } from "./data";
-
-import BrandLogo from "public/betarbi.svg";
-// import Button from "@/components/atom/Button";
 import { cn } from "@/base/libs/utils";
+import ArtsyLogo from "@/components/atom/artsy-logo";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("Home");
 
   const handleToggle = () => {
     setIsOpen((c) => !c);
@@ -22,29 +20,62 @@ export default function Header() {
   return (
     <nav
       role="site navigation"
-      className="container py-4 lg: flex lg:justify-between"
+      className="container py-4 lg: flex items-center lg:justify-between"
     >
-      <div className="flex items-center justify-between w-full">
-        {/*  */}
-        {isOpen ? (
-          <RiCloseLine
-            onClick={handleToggle}
-            className="z-[60] lg:hidden"
-            size={28}
-          />
-        ) : (
-          <VscMenu
-            onClick={handleToggle}
-            className="z-50 lg:hidden"
-            size={28}
-          />
-        )}
-        <Link href="/">
-          <h1 className="text-grey-dark text-[1.5rem]  font-bold font-stix">
-            ARTSY.
-          </h1>
-        </Link>
-        <div className="flex">
+      <div className="flex items-center justify-between w-full relative">
+        <VscMenu onClick={handleToggle} className="z-50 lg:hidden " size={28} />
+        <ArtsyLogo />
+
+        {/* show the nav when isOpen */}
+        <div
+          className={cn(
+            "max-lg:px-10 fixed top-0 transition bottom-0 right-0 flex-col w-full lg:w-max gap-8 pt-6 lg:pt-0 z-50 bg-white lg:static lg:items-center lg:flex-col",
+            !isOpen && "max-lg:hidden"
+          )}
+        >
+          <div className="z-[60 flex justify-between  lg:hidden items-center pb-[3.125rem]">
+            <ArtsyLogo />
+            <RiCloseLine onClick={handleToggle} className=" " size={52} />
+          </div>
+          <div className="w-16 h-16 bg-blue rounded-full absolute right-8 bottom-16 shadow-7xl flex items-center justify-center">
+            <svg
+              width="29"
+              height="29"
+              viewBox="0 0 29 29"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 29V2.9C0 2.1025 0.2842 1.41955 0.8526 0.85115C1.42003 0.283716 2.1025 0 2.9 0H26.1C26.8975 0 27.5805 0.283716 28.1489 0.85115C28.7163 1.41955 29 2.1025 29 2.9V20.3C29 21.0975 28.7163 21.7805 28.1489 22.3489C27.5805 22.9163 26.8975 23.2 26.1 23.2H5.8L0 29Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <ul
+            className="flex flex-col gap-8 lg:gap-12 lg:flex-row  font-normal  text-2xl"
+            role="nav items list"
+          >
+            {navLinks.map((navLink) => (
+              <Link
+                onClick={() => {
+                  handleToggle();
+                  setActiveSection(navLink.name);
+                }}
+                href={navLink.urlPath}
+                key={navLink.name}
+                className={
+                  activeSection === navLink.name
+                    ? "lg:border-b-2 lg:border-1 lg:border-black"
+                    : ""
+                }
+              >
+                <li>{navLink.name}</li>
+              </Link>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex items-center">
           <svg
             width="48"
             height="48"
@@ -75,7 +106,7 @@ export default function Header() {
           </Link>
           <Link href="drop">
             <svg
-              className=""
+              className="hidden md:block"
               width="46"
               height="49"
               viewBox="0 0 46 49"
