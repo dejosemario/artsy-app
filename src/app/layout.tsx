@@ -3,7 +3,9 @@ import Footer from "../components/molecules/Footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const inter =  Inter({ subsets: ["latin"], variable: "--font-inter" });
+
 
 export const metadata = {
   title: "Artsy App",
