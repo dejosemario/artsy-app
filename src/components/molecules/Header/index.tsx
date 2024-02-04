@@ -2,12 +2,11 @@
 
 import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { VscMenu } from "react-icons/vsc";
 import { RiCloseLine } from "react-icons/ri";
-import { navLinks } from "./data";
 import { cn } from "@/base/libs/utils";
 import ArtsyLogo from "@/components/atom/artsy-logo";
+import { navLinks } from "@/base/libs/data";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -106,7 +105,7 @@ export default function Header() {
           </Link>
           <Link href="drop">
             <svg
-              className="hidden md:block"
+              className="hidden lg:block"
               width="46"
               height="49"
               viewBox="0 0 46 49"
