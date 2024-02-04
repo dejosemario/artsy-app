@@ -1,7 +1,8 @@
-import Header from "@/components/molecules/Header";
-import Footer from "../components/molecules/Footer";
+import Header from "@/components/molecules/header";
+import Footer from "../components/molecules/footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 
 const inter =  Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -21,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body>
+      <ActiveSectionContextProvider>
           <Header />
           {children}
           <Footer />
+        </ActiveSectionContextProvider>
       </body>
     </html>
   );
