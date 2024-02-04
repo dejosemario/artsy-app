@@ -1,5 +1,6 @@
-import React, { useState, createContext } from "react";
-import { navLinks } from "../components/molecules/Header/data";
+'use client';
+import React, { useState, createContext, useContext } from "react";
+import { navLinks } from "../base/libs/data";
 
 type SectionName = (typeof navLinks)[number]["name"];
 
@@ -24,4 +25,14 @@ export default function ActiveSectionContextProvider({
       {children}
     </ActiveSectionContext.Provider>
   );
+}
+
+export function useActiveSectionContext(){
+  const context = useContext(ActiveSectionContext);
+  if(context === null){
+    throw new Error(
+      "useActiveSectionContext must be used within a ActiveSectionContextProvider"
+    )
+  }
+  return context;
 }
