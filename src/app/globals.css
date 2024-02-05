@@ -17,3 +17,28 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX();
+  }
+}
+
+.item:nth-child(odd){
+  animation: slideInFromLeft 0.7s ease-in-out ;
+}
+.item:nth-child(even) {
+  animation: slideInFromRight 0.7s ease-in-out ;
+}

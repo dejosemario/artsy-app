@@ -1,8 +1,8 @@
-import Header from "@/components/molecules/header";
-import Footer from "../components/molecules/footer";
+import Footer from "@/components/molecules/footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import Header from "@/components/molecules/header";
 
 
 const inter =  Inter({ subsets: ["latin"], variable: "--font-inter" });
