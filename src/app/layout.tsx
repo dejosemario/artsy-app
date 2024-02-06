@@ -5,7 +5,7 @@ import ActiveSectionContextProvider from "@/context/active-section-context";
 import Header from "@/components/molecules/header";
 
 
-const inter =  Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"] });
 
 
 export const metadata = {

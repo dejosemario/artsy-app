@@ -10,7 +10,7 @@ import image5 from "@/public/images/carouselImage/Homepage-carousel-WEB-4.png";
 
 const carouselImages = [image1, image2, image3, image4, image5];
 
-export function HeroImageDesktop() {
+export default function HeroImageDesktop() {
   const [images, setImages] = useState(carouselImages);
   const [animate, setAnimate] = useState(true);
 

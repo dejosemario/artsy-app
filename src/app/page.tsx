@@ -1,11 +1,11 @@
-import { HeroImageDesktop } from "@/components/atom/heroImageDesktop";
-import { HeroImageMobile } from "@/components/atom/heroImageMobile";
+
+import Hero from "@/components/molecules/hero"
 import React from "react";
 export default function Home() {
   return (
     <main className="flex flex-col items-center px-4">
-    <HeroImageMobile />
-    <HeroImageDesktop />
+    <Hero />
+   
     </main>
   );
 }

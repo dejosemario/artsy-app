@@ -3,7 +3,7 @@ import Rectangle242 from "@/public/images/mobileHero/Rectangle242.png";
 import Rectangle240 from "@/public/images/mobileHero/Rectangle240.png";
 import Rectangle241 from "@/public/images/mobileHero/Rectangle241.png";
 
-export function HeroImageMobile() {
+export default function HeroImageMobile() {
   return (
     <div className="mt-16 mb-[100px] flex container justify-center lg:hidden ">
       <div className="relative w-fit h-[300px] ">
