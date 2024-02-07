@@ -10,12 +10,12 @@ const images = [eclipse1, eclipse2, eclipse3, eclipse4, eclipse5];
 
 function EllipseImage() {
   return (
-    <div className="flex gap-6 lg:gap-8 items-center">
+    <div className="flex gap-6 lg:gap-8 items-center pl-2.5">
          <div className="grid grid-cols-5 first:ml-0 ">
       {images.map((image, index) => (
         <div
           key={index}
-          className="border border-[#78A3AD] rounded-full lg:h-[51px] w-[42px] h-[42px] lg:w-[51px] -m-2.5  transform transition duration-200  hover:scale-[1.2] hover:z-[1] cursor-pointer"
+          className="border border-[#78A3AD] rounded-full lg:h-[51px] w-[42px] h-[42px] lg:w-[51px] -m-2.5   transform transition duration-200  hover:scale-[1.2] hover:z-[1] cursor-pointer"
         >
           <Image src={image} alt="Ellipse Image" />
         </div>
