@@ -3,37 +3,10 @@ import React from "react";
 import { cn } from "@/base/libs/utils";
 import ArrowCircle from "@/public/images/svg/arrowCircle1.svg";
 import Image from "next/image";
-import featured1 from "@/public/images/featured/Featured-product-1.png";
-import featuredMobile from "@/public/images/featured/Featured-product-1a.png";
-import featured2 from "@/public/images/featured/Featured-product-2.png";
-import featuredMobile2 from "@/public/images/featured/Featured-product-2a.png";
-import featured3 from "@/public/images/featured/Featured-product-3.png";
-import featuredMobile3 from "@/public/images/featured/Featured-product-3a.png";
+import {articles} from "@/base/libs/data";
 import Link from "next/link";
+
 export default function FeaturedCard() {
-  //  const featured1a =
-
-  const articles = [
-    {
-      title: "The Boolean Egyptian",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor pur",
-      mobileImg: featuredMobile,
-      img: featured1,
-    },
-    {
-      title: "Are we there yet?",
-      body: "aecati repudiandae vel ex iusto praesentium placeat, adipisci soluta hic aperiam omnis consequuntur facilis quo, quibusdam quidem. Sed eveniet a obcaecati quis at eligendi nulla, voluptates praesentium dolor",
-      mobileImg: featuredMobile2,
-      img: featured2,
-    },
-    {
-      title: "Oloibiri",
-      body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor pur",
-      mobileImg: featuredMobile3,
-      img: featured3,
-    },
-  ];
-
   return (
     <section className="container">
       <h2 className="font-bold md:font-medium text-[1.75rem] lg:text-[3rem] leading-[4rem] lg:pb-9 pb-4">
