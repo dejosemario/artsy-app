@@ -1,7 +1,7 @@
 import EllipseImage from "@/components/atom/ellipseImage";
 import React from "react";
 import { cn } from "@/base/libs/utils";
-import ArrowCircle from "@/public/images/svg/arrowCircle1.svg";
+import ArrowCircle from "@/public/images/svg/arrowCircle.svg";
 import Image from "next/image";
 import {articles} from "@/base/libs/data";
 import Link from "next/link";
