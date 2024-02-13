@@ -1,4 +1,5 @@
 
+import CreatorsCard from "@/components/molecules/creatorsCard";
 import ExploreCard from "@/components/molecules/exploreCard";
 import FeaturedCard from "@/components/molecules/featuredCard";
 import Hero from "@/components/molecules/hero"
@@ -11,6 +12,7 @@ export default function Home() {
     <FeaturedCard />
     <Upcoming />
     <ExploreCard />
+    <CreatorsCard />
    
     </main>
   );
