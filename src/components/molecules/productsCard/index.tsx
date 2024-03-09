@@ -1,14 +1,19 @@
+'use client'
+import { useDataSectionContext } from '@/context/context'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Image from 'next/image'
 
 function Products() {
     // import product from context 
-    const {products} = useContext(Context)
+    const {products} = useDataSectionContext() 
+    console.log("I am products", products)
+
     // State to keep track if show all products or first 9 and hide the show more button
     const [showAll, setShowAll] = useState(false)
 
     // Display the first 9 items of the product
-    const productItems = products.map((item, index)=>{
+    const productItems = products.map((item:any, index:number)=>{
         if(index <= 8){
             return(
                 <ProductItems
@@ -23,7 +28,7 @@ function Products() {
     })
 
     // Display all the products once user clicks on see more 
-    const productItemsAll = products.map((item, index)=>{
+    const productItemsAll = products.map((item:any, index:number)=>{
         return(
             <ProductItems
                 id={item.id}
@@ -59,9 +64,9 @@ function ProductItems({img, title, price, id}){
     return(
         <Link to={`/marketplace/${id}`}>
             <div className=' overflow-hidden md:h-[414px] rounded-[15px] md:shadow-[0px_22px_44px_rgba(217,225,244,0.36)] py-5 px-[14px] '>
-                <img src={img} alt="" className='h-[357px] md:h-[280px] w-full rounded-[0.5rem] mb-2.5' />
+                <Image src={img} alt="" className='h-[357px] md:h-[280px] w-full rounded-[0.5rem] mb-2.5' />
                 <article className='flex md:block justify-between'>
-                    <h4 className='text-[22px] leading-[157%] text-grey mb-[18px]'>{toTitleCase(title)}</h4>
+                    <h4 className='text-[22px] leading-[157%] text-grey mb-[18px]'>{title}</h4>
                     <p className='font-bold font-grey text-[1.25rem] leading-[157%]'>${price}</p>
                 </article>
             </div>
