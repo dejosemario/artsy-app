@@ -6,14 +6,17 @@ import Image from 'next/image'
 
 function Products() {
     // import product from context 
-    const {products} = useDataSectionContext() 
-    console.log("I am products", products)
+    const {products, setProducts} = useDataSectionContext() 
 
     // State to keep track if show all products or first 9 and hide the show more button
     const [showAll, setShowAll] = useState(false)
 
     // Display the first 9 items of the product
-    const productItems = products.map((item:any, index:number)=>{
+    console.log("I am products", products, setProducts)
+    
+    const productItems = products?.map((item:any, index:number)=>{
+        console.log("I am productibng", item.url)
+
         if(index <= 8){
             return(
                 <ProductItems
