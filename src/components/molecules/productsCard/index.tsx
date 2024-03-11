@@ -4,6 +4,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Image from 'next/image'
 
+
+type ProductItemsProps = {
+    img: string | any;
+    title: string | any;
+    price: number | any;
+    id: number  | any;
+}
+
 function Products() {
     // import product from context 
     const {products, setProducts} = useDataSectionContext() 
@@ -12,9 +20,14 @@ function Products() {
     const [showAll, setShowAll] = useState(false)
 
     // Display the first 9 items of the product
-    console.log("I am products", products, setProducts)
+    console.log("I am products", products)
+
+    if (products) {
+        // Handle the case where products is not available yet
+        return <p>Loading products...{JSON.stringify(products)}</p>;
+      }
     
-    const productItems = products?.map((item:any, index:number)=>{
+    const productItems = products.map((item:any, index:number)=>{
         console.log("I am productibng", item.url)
 
         if(index <= 8){
@@ -63,7 +76,7 @@ function Products() {
     )
 }
 
-function ProductItems({img, title, price, id}){
+function ProductItems({img, title, price, id}: ProductItemsProps){
     return(
         <Link to={`/marketplace/${id}`}>
             <div className=' overflow-hidden md:h-[414px] rounded-[15px] md:shadow-[0px_22px_44px_rgba(217,225,244,0.36)] py-5 px-[14px] '>
