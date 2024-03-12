@@ -21,13 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body>
-        <ActiveSectionContextProvider>
-          <DataSectionContextProvider>
-            <Header />
-            {children}
-            <Footer />
-          </DataSectionContextProvider>
-        </ActiveSectionContextProvider>
+        <DataSectionContextProvider>
+            <ActiveSectionContextProvider>
+              <Header />
+              {children}
+              <Footer />
+            </ActiveSectionContextProvider>{" "}
+        </DataSectionContextProvider>
       </body>
     </html>
   );

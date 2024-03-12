@@ -4,16 +4,33 @@ import React, {
   useEffect,
   createContext,
   useContext,
-  use,
 } from "react";
 
 type DataSectionContextProviderProps = {
   children: React.ReactNode;
 };
 
+// export type Product = {
+//   id: string;
+//   name: string;
+//   creator: string;
+//   origin: string;
+//   views: string;
+//   price: {
+//     usd: number;
+//     eth: number;
+//   };
+//   size: {
+//     ft: number;
+//   };
+//   url: string;
+// };
+
+
+
 type DataSectionContextType = {
   products: any;
-  setProducts: React.Dispatch<React.SetStateAction<any>>;
+  setProducts: any;
   cart: any;
   setCart: React.Dispatch<React.SetStateAction<any>>;
   favorite: any;
@@ -24,69 +41,34 @@ type DataSectionContextType = {
 
 const DataSectionContext = createContext<DataSectionContextType | null>(null);
 
-// const pp = [
-//   {
-//     id: 1,
-//     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//     price: 109.95,
-//     description:
-//       "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//     category: 123,
-//   },
-//   {
-//     id: 2,
-//     title: "Mens Casual Premium Slim Fit T-Shirts ",
-//     price: 22.3,
-//     description:
-//       "Slim-fitting style, short sleeves, and designed with superior combed and ring-spun cotton",
-//     category: 123,
-//   },
-//   {
-//     id: 3,
-//     title: "Mens Cotton Jacket",
-//     price: 55.99,
-//     description:
-//       "Lightweight cotton jacket perfect for layering, with two front pockets",
-//     category: 123,
-//   },
-// ];
 
 export default function DataSectionContextProvider({
   children,
 }: DataSectionContextProviderProps) {
   const url =
     "https://gist.githubusercontent.com/eniiku/65a95533de1f005eee35d5eb91f3e141/raw/439bc2dd8693b490539eae236918f4a53dd17457";
-  const [products, setProducts] = useState();
+  
+  const [products, setProducts] = useState([]);
+
   const [cart, setCart] = useState([]);
   const [favorite, setFavorite] = useState([]);
   const [name, setName] = useState("");
-  const [loading, setLoading] = useState(true);
 
-  //provide context for the products using the above url
 
   useEffect(() => {
-    // setProducts(pp);
     const fetchProducts = async () => {
       try {
         const response = await fetch(`${url}/products.json`);
         const data = await response.json();
-        console.log("I am data", data);
-        setProducts(data);
-        setLoading(false);
-      } catch (error) {
+        setProducts(data.products);
+      } 
+      catch (error) {
         console.log("Error fetching products", error);
       }
     };
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    console.log("I am products", products, setProducts);
-  }, [products]);
-
-  if (loading) {
-    return <p>Loading data...{products}</p>;
-  }
 
   return (
     <DataSectionContext.Provider
@@ -113,5 +95,6 @@ export function useDataSectionContext() {
       "useDataSectionContext must be used within a DataSectionContextProvider"
     );
   }
+  
   return context;
 }
