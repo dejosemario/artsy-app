@@ -1,6 +1,8 @@
 "use client";
+import { Product } from "@/context/context";
+
 import { useDataSectionContext } from "@/context/context";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Image from "next/image";
 
@@ -12,16 +14,18 @@ type ProductItemsProps = {
 };
 
 function Products() {
-  // import product from context
-  const { products } = useDataSectionContext();
+  const { productList } = useDataSectionContext();
 
-  // State to keep track if show all products or first 9 and hide the show more button
+  const [products, setProducts] = useState<Product[]>([]);
   const [showAll, setShowAll] = useState(false);
 
+  useEffect(() => {
+    if (productList) {
+      setProducts(productList);
+    }
+  }, [productList]);
+
   // Display the first 9 items of the product
-
-  console.log("I am allProducts", products);
-
   const productItems = products?.slice(0, 9).map((item: any, index: number) => {
     return (
       <ProductItems
@@ -34,7 +38,7 @@ function Products() {
     );
   });
 
-  console.log("I am renderedpr", products);
+  console.log("I am renderedpr", productList);
 
   // Display all the products once user clicks on see more
   const productItemsAll = products.map((item: any, index: number) => {

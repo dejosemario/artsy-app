@@ -1,8 +1,6 @@
-'use client';
+"use client";
 import React, { useState, createContext, useContext } from "react";
-import { navLinks } from "../base/libs/data";
-
-type SectionName = (typeof navLinks)[number]["name"];
+import type { SectionName } from "../base/libs/types";
 
 type ActiveSectionContextProviderProps = {
   children: React.ReactNode;
@@ -27,12 +25,12 @@ export default function ActiveSectionContextProvider({
   );
 }
 
-export function useActiveSectionContext(){
+export function useActiveSectionContext() {
   const context = useContext(ActiveSectionContext);
-  if(context === null){
+  if (context === null) {
     throw new Error(
       "useActiveSectionContext must be used within a ActiveSectionContextProvider"
-    )
+    );
   }
   return context;
 }
