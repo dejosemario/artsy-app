@@ -3,7 +3,7 @@ import { Product } from "@/context/context";
 
 import { useDataSectionContext } from "@/context/context";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Image from "next/image";
 
 type ProductItemsProps = {
@@ -37,8 +37,6 @@ function Products() {
       />
     );
   });
-
-  console.log("I am renderedpr", productList);
 
   // Display all the products once user clicks on see more
   const productItemsAll = products.map((item: any, index: number) => {
@@ -101,11 +99,13 @@ function Products() {
 
 function ProductItems({ img, title, price, id }: ProductItemsProps) {
   return (
-    <Link to={`/marketplace/${id}`}>
+    <Link href={`/marketplace/${id}`}>
       <div className=" overflow-hidden md:h-[414px] rounded-[15px] md:shadow-[0px_22px_44px_rgba(217,225,244,0.36)] py-5 px-[14px] ">
         <Image
           src={img}
           alt=""
+          width={400}
+          height={280}
           className="h-[357px] md:h-[280px] w-full rounded-[0.5rem] mb-2.5"
         />
         <article className="flex md:block justify-between">
