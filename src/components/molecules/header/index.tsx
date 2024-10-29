@@ -5,7 +5,7 @@ import Link from "next/link";
 import { VscMenu } from "react-icons/vsc";
 import { RiCloseLine } from "react-icons/ri";
 import { cn } from "@/base/libs/utils";
-import ArtsyLogo from "@/components/atom/artsy-logo";
+import ArtsyLogo from "@/components/atom/artsyLogo";
 import { navLinks } from "@/base/libs/data";
 
 export default function Header() {

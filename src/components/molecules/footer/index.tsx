@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 
-import ArtsyLogo from "@/components/atom/artsy-logo";
+import ArtsyLogo from "@/components/atom/artsyLogo";
 import { navLinks, infoData } from "@/base/libs/data";
 import { cn } from "@/base/libs/utils";
 import { useActiveSectionContext } from "@/context/active-section-context";
