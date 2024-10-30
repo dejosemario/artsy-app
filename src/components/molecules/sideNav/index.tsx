@@ -1,10 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import CheckBox from "@/components/atom/checkBox";
 import { CatTitle } from "@/components/atom/catTitle";
 import MultiRangeSlider from "@/components/atom/multiSlider";
 function SideNav() {
   const [value, setValue] = useState({ min: 0, max: 100 });
+  const handleRangeChange = useCallback(
+    ({ min, max }: { min: number; max: number }) => {
+      setValue({ min, max });
+    },
+    []
+  );// what does it do? it sets the value of the range slider to the min and max values
 
   return (
     <aside className="w-[244px] shrink-0 hidden lg:block">
@@ -66,7 +72,7 @@ function SideNav() {
           <MultiRangeSlider
             min={1}
             max={100}
-            onChange={({ min, max }) => setValue({ min: min, max: max })}
+            onChange={handleRangeChange}
           />
         </div>
       </div>
@@ -83,6 +89,7 @@ function SideNav() {
       <div className="mb-4">
         <CatTitle title="Collection year" />
         <div></div>
+
       </div>
     </aside>
   );
