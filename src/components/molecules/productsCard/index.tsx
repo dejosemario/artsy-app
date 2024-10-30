@@ -101,13 +101,16 @@ function ProductItems({ img, title, price, id }: ProductItemsProps) {
   return (
     <Link href={`/marketplace/${id}`}>
       <div className=" overflow-hidden md:h-[414px] rounded-[15px] md:shadow-[0px_22px_44px_rgba(217,225,244,0.36)] py-5 px-[14px] ">
-        <Image
-          src={img}
-          alt=""
-          width={400}
-          height={280}
-          className="h-[357px] md:h-[280px] w-full rounded-[0.5rem] mb-2.5"
-        />
+        <div className="relative w-full h-[280px]">
+          <Image
+            src={img}
+            alt=""
+            layout="fill"
+            objectFit="cover"
+            className="rounded-[0.5rem] mb-2.5"
+          />
+        </div>
+
         <article className="flex md:block justify-between">
           <h4 className="text-[22px] leading-[157%] text-grey mb-[18px]">
             {title}
