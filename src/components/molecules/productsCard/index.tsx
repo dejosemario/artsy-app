@@ -53,7 +53,7 @@ function Products() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-center  md:gap-200">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-center  md:gap-200 ">
         {showAll ? productItemsAll : productItems}
       </div>
       {!showAll && (
@@ -88,7 +88,7 @@ function Products() {
       {!showAll && (
         <button
           onClick={() => setShowAll(true)}
-          className="border border-grey rounded-[10px] py-4 px-[3.75rem] text-2xl font-medium text-grey block mx-auto my-[100px] hidden md:block"
+          className="border border-grey rounded-[10px] py-4 px-[3.75rem] text-2xl font-medium text-grey hidden  mx-auto my-[100px] md:block"
         >
           See more
         </button>
